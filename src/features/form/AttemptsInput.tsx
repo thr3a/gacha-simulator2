@@ -1,4 +1,4 @@
-import { Button, Group, TextInput } from '@mantine/core';
+import { Button, Group, TextInput, Box } from '@mantine/core';
 import { useGachaFormContext } from '@/features/form/GachaContext';
 import { useEffect } from 'react';
 
@@ -19,12 +19,11 @@ export const AttemptsInput = (): JSX.Element => {
   }, [form.values.attempts]);
 
   return (
-    <>
+    <Box mt={'xs'} mb={'xs'}>
       <TextInput
         label="ガチャを試す回数"
         {...form.getInputProps('attempts')}
         rightSection={'回'}
-        // onChange={() => form.isValid()}
       />
       <Group>
         <Button.Group>
@@ -37,6 +36,6 @@ export const AttemptsInput = (): JSX.Element => {
         </Button.Group>
 
       </Group>
-    </>
+    </Box>
   );
 };

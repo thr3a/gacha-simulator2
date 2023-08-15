@@ -27,7 +27,7 @@ export const ProbInput = (): JSX.Element => {
               sx={(theme) => ({
                 padding: theme.spacing.xs
               })}
-              key={index} variant="outline" onClick={() => { setProb(prob); }} >{prob}%</Button>
+              key={index} variant="outline" onClick={() => { setProb(prob); }} >{prob}</Button>
           ))
         }
 

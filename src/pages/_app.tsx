@@ -33,16 +33,16 @@ export default function App (props: AppProps): JSX.Element {
           defaultRadius: 'xs',
           fontFamily: '"Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif',
           components: {
-            TextInput: {
-              styles: (theme) => ({
-                // label: {
-                //   fontWeight: 'bold'
-                // },
-                root: {
-                  marginBottom: theme.spacing.xs
-                }
-              })
-            },
+            // TextInput: {
+            //   styles: (theme) => ({
+            //     label: {
+            //       fontWeight: 'bold'
+            //     },
+            //     root: {
+            //       marginBottom: theme.spacing.xs
+            //     }
+            //   })
+            // },
             RadioGroup: {
               styles: (theme) => ({
                 label: {

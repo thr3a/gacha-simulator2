@@ -15,11 +15,11 @@ export const Result = (): JSX.Element => {
   }
   return (
     <>
-      <List>
+      <List spacing={3}>
         <List.Item>
           1回以上当たる確率は{ formatProb(gacha.anySuccessProb()) }
         </List.Item>
-        <List.Item>
+        <List.Item mb={'sm'}>
           全て外れる確率は { formatProb(gacha.allFailProb()) }
         </List.Item>
         {[50, 70, 95].map((threshold, index) =>
