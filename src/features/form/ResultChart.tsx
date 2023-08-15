@@ -11,10 +11,10 @@ type chartDataProps = {
 const ResultChart = ({ data }: chartDataProps): JSX.Element => {
   return (
     <BarChart
-      width={400}
+      width={350}
       height={300}
       data={data}
-      // margin={{ top: 20, right: 30, left: 20, bottom: 5 }} // マージン
+      margin={{ top: 0, right: 0, left: 5, bottom: 0 }}
     >
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="count" unit="回">
