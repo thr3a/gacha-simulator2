@@ -49,8 +49,8 @@ export const Result = (): JSX.Element => {
       <Table striped withBorder>
         <thead>
           <tr>
-            <th>当選回数</th>
-            <th>当選確率</th>
+            <th>当たる回数</th>
+            <th>確率</th>
           </tr>
         </thead>
         <tbody>

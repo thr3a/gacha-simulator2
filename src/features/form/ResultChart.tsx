@@ -21,7 +21,7 @@ const ResultChart = ({ data }: chartDataProps): JSX.Element => {
         {/* <Label value="回数" offset={-10} position={'insideBottom'} /> */}
       </XAxis>
       <YAxis dataKey="prob" unit="%" domain={[0, 100]}>
-        <Label value="当選確率" angle={-90} position={'insideLeft'} />
+        <Label value="確率" angle={-90} position={'insideLeft'} />
       </YAxis>
       <Tooltip/>
       <Bar dataKey="prob" fill="#1C7ED6"
