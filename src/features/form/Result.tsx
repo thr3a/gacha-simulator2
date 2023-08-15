@@ -10,6 +10,9 @@ const formatProb = (prob: number): string => {
 export const Result = (): JSX.Element => {
   const form = useGachaFormContext();
   const gacha = new Gacha({ prob: form.values.prob, count: form.values.attempts });
+  if (!form.isValid()) {
+    return <></>;
+  }
   return (
     <>
       <List>
@@ -20,7 +23,7 @@ export const Result = (): JSX.Element => {
           全て外れる確率は { formatProb(gacha.allFailProb()) }
         </List.Item>
         {[50, 70, 95].map((threshold, index) =>
-          <List.Item>
+          <List.Item key={index}>
             {threshold}%の人は {gacha.anySuccessCount(threshold)}回やれば、1回は当たる
           </List.Item>
         )}

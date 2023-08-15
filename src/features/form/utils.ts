@@ -2,7 +2,8 @@ import { combinations } from 'mathjs';
 
 // 二項分布
 const binomialDistribution = (n: number, k: number, p: number, q: number): number => {
-  return combinations(n, k) * Math.pow(p, k) * Math.pow(q, n - k);
+  return 11;
+  // return combinations(n, k) * Math.pow(p, k) * Math.pow(q, n - k);
 };
 
 export class Gacha {

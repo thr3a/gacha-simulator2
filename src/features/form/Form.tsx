@@ -1,30 +1,28 @@
-import { NumberInput, Group, Button, Box } from '@mantine/core';
+import { Box } from '@mantine/core';
 import { GachaFormProvider, useGachaForm } from '@/features/form/GachaContext';
 import { ProbInput } from '@/features/form/ProbInput';
 import { AttemptsInput } from '@/features/form/AttemptsInput';
 import { Result } from '@/features/form/Result';
-// import { isNotEmpty, isInRange } from '@mantine/form'; // https://mantine.dev/form/validators/
+import { zodResolver } from '@mantine/form'; // https://mantine.dev/form/validators/
+import { z } from 'zod';
+
+const zodSchema = z.object({
+  attempts: z.number().min(10, { message: '回数は10以上必須' })
+});
 
 export const GachaForm = (): JSX.Element => {
   const form = useGachaForm({
+    validateInputOnChange: true,
     initialValues: {
       prob: 1,
       attempts: 30
     },
-
-    validate: {
-      // name: isNotEmpty('名前は必須項目です'),
-      // age: isInRange({ min: 18, max: 99 }, 'You must be 18-99 years old to register')
-    }
+    validate: zodResolver(zodSchema)
   });
-
-  const handleSubmit = (): void => {
-    console.log(form.values);
-  };
 
   return (
     <GachaFormProvider form={form}>
-      <Box component="form" maw={400} mx="auto" onSubmit={form.onSubmit(() => { handleSubmit(); })}>
+      <Box maw={400} mx="auto">
         <ProbInput></ProbInput>
         <AttemptsInput></AttemptsInput>
         <Result></Result>
