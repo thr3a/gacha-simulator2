@@ -1,7 +1,9 @@
-import { List, Table, Text } from '@mantine/core';
+import { List, Space, Table, Text } from '@mantine/core';
 import { useGachaFormContext } from '@/features/form/GachaContext';
 import { Gacha } from '@/features/form/utils';
 import { roundDecimal } from 'decimal-utils';
+import dynamic from 'next/dynamic';
+const ResultChart = dynamic(async () => await import('@/features/form/ResultChart'), { ssr: false });
 
 const formatProb = (prob: number): string => {
   return `${roundDecimal(prob * 100, 2)}%`;
@@ -37,11 +39,18 @@ export const Result = (): JSX.Element => {
           1%の人は<Text component='span' fw={'bold'} c={'red'}>{gacha.anySuccessCount(99) }</Text>回やっても全て外れる🤪
         </List.Item>
       </List>
+
+      <Space h={'md'}></Space>
+
+      <ResultChart data={
+        [0, 1, 2, 3, 4, 5].map((hit) => ({ count: hit, prob: roundDecimal(gacha.SuccessProbByHit(hit) * 100, 2) }))
+      }></ResultChart>
+
       <Table striped withBorder>
         <thead>
           <tr>
-            <th>出現回数</th>
-            <th>確率</th>
+            <th>当選回数</th>
+            <th>当選確率</th>
           </tr>
         </thead>
         <tbody>

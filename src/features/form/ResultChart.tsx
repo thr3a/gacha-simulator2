@@ -1,0 +1,35 @@
+import React from 'react';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Label } from 'recharts';
+
+type chartDataProps = {
+  data: Array<{
+    count: number
+    prob: number
+  }>
+};
+
+const ResultChart = ({ data }: chartDataProps): JSX.Element => {
+  return (
+    <BarChart
+      width={400}
+      height={300}
+      data={data}
+      // margin={{ top: 20, right: 30, left: 20, bottom: 5 }} // マージン
+    >
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="count" unit="回">
+        {/* <Label value="回数" offset={-10} position={'insideBottom'} /> */}
+      </XAxis>
+      <YAxis dataKey="prob" unit="%" domain={[0, 100]}>
+        <Label value="当選確率" angle={-90} position={'insideLeft'} />
+      </YAxis>
+      <Tooltip/>
+      <Bar dataKey="prob" fill="#1C7ED6"
+        label={{ position: 'top', fill: 'dark' }}
+
+      />
+    </BarChart>
+  );
+};
+
+export default ResultChart;
