@@ -7,7 +7,7 @@ export const Header = (): JSX.Element => {
         sx={(theme) => ({
           marginTop: theme.spacing.md
         })}
-      >Create Next App</Title>
+      >ガチャシュミレーター</Title>
     </>
   );
 };
