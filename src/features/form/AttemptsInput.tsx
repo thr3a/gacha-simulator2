@@ -1,4 +1,4 @@
-import { Button, Group, NumberInput } from '@mantine/core';
+import { Button, Group, TextInput } from '@mantine/core';
 import { useGachaFormContext } from '@/features/form/GachaContext';
 import { useEffect } from 'react';
 
@@ -20,7 +20,7 @@ export const AttemptsInput = (): JSX.Element => {
 
   return (
     <>
-      <NumberInput
+      <TextInput
         label="ガチャを試す回数"
         {...form.getInputProps('attempts')}
         rightSection={'回'}

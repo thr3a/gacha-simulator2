@@ -1,4 +1,5 @@
 import { createFormContext } from '@mantine/form';
+import { z } from 'zod';
 
 type GachaFormProps = {
   prob: number
@@ -31,3 +32,8 @@ export const PROB_PRESETS = [
   6,
   10
 ];
+
+export const zodSchema = z.object({
+  prob: z.number().min(0.1, { message: '確率は0.1以上必須' }),
+  attempts: z.number().min(10, { message: '回数は10以上必須' })
+});
