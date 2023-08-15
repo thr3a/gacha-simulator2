@@ -1,4 +1,4 @@
-import { Box } from '@mantine/core';
+import { Box, Space } from '@mantine/core';
 import { GachaFormProvider, useGachaForm, zodSchema } from '@/features/form/GachaContext';
 import { ProbInput } from '@/features/form/ProbInput';
 import { AttemptsInput } from '@/features/form/AttemptsInput';
@@ -19,7 +19,9 @@ export const GachaForm = (): JSX.Element => {
     <GachaFormProvider form={form}>
       <Box maw={400} mx="auto">
         <ProbInput></ProbInput>
+        <Space h="md" />
         <AttemptsInput></AttemptsInput>
+        <Space h="md" />
         <Result></Result>
       </Box>
     </GachaFormProvider>

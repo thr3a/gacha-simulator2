@@ -1,4 +1,4 @@
-import { List, Table } from '@mantine/core';
+import { List, Table, Text } from '@mantine/core';
 import { useGachaFormContext } from '@/features/form/GachaContext';
 import { Gacha } from '@/features/form/utils';
 import { roundDecimal } from 'decimal-utils';
@@ -15,20 +15,26 @@ export const Result = (): JSX.Element => {
   }
   return (
     <>
-      <List spacing={3}>
+      <List spacing={4} mb={'sm'}
+        icon={<></>} center
+      >
         <List.Item>
-          1回以上当たる確率は{ formatProb(gacha.anySuccessProb()) }
+          <Text fz="xl">1回以上当たる確率は
+            <Text component='span' fw={'bold'} c={'red'}>{ formatProb(gacha.anySuccessProb()) }</Text>
+          </Text>
         </List.Item>
         <List.Item mb={'sm'}>
-          全て外れる確率は { formatProb(gacha.allFailProb()) }
+          <Text fz="xl">全て外れる確率は
+            <Text component='span' fw={'bold'}>{ formatProb(gacha.allFailProb()) }</Text>
+          </Text>
         </List.Item>
         {[50, 70, 95].map((threshold, index) =>
           <List.Item key={index}>
-            {threshold}%の人は {gacha.anySuccessCount(threshold)}回やれば、1回は当たる
+            {threshold}%の人は<Text component='span' fw={'bold'}>{gacha.anySuccessCount(threshold)}</Text>回やれば1回は当たる
           </List.Item>
         )}
         <List.Item>
-          1%の人は {gacha.anySuccessCount(99) }回やっても全て外れる🤪
+          1%の人は<Text component='span' fw={'bold'} c={'red'}>{gacha.anySuccessCount(99) }</Text>回やっても全て外れる🤪
         </List.Item>
       </List>
       <Table striped withBorder>

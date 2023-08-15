@@ -19,11 +19,10 @@ export const AttemptsInput = (): JSX.Element => {
   }, [form.values.attempts]);
 
   return (
-    <Box mt={'xs'} mb={'xs'}>
+    <Box>
       <TextInput
         label="ガチャを試す回数"
         {...form.getInputProps('attempts')}
-        rightSection={'回'}
       />
       <Group>
         <Button.Group>
