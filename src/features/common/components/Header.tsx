@@ -1,13 +1,15 @@
-import { Title } from '@mantine/core';
+import { Title, Anchor } from '@mantine/core';
 
 export const Header = (): JSX.Element => {
   return (
     <>
-      <Title order={2}
-        sx={(theme) => ({
-          marginTop: theme.spacing.md
-        })}
-      >ガチャシュミレーター</Title>
+      <Anchor href="/">
+        <Title order={2}
+          sx={(theme) => ({
+            marginTop: theme.spacing.md
+          })}
+        >ガチャシュミレーター</Title>
+      </Anchor>
       <Title
         color="dimmed"
         order={5}
