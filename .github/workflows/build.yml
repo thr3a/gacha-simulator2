@@ -42,7 +42,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: out
-          # cname: xxx.turai.work
+          cname: gacha.turai.work
 
       # #############################################
       # Kubernetes
