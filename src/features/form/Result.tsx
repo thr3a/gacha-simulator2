@@ -1,6 +1,6 @@
-import { List, Space, Table, Text } from '@mantine/core';
 import { useGachaFormContext } from '@/features/form/GachaContext';
 import { Gacha } from '@/features/form/utils';
+import { List, Space, Table, Text } from '@mantine/core';
 import { roundDecimal } from 'decimal-utils';
 import dynamic from 'next/dynamic';
 const ResultChart = dynamic(async () => await import('@/features/form/ResultChart'), { ssr: false });
@@ -17,34 +17,49 @@ export const Result = (): JSX.Element => {
   }
   return (
     <>
-      <List spacing={4} mb={'sm'}
-        icon={<></>} center
-      >
+      <List spacing={4} mb={'sm'} center>
         <List.Item>
-          <Text fz="xl">1回以上当たる確率は
-            <Text component='span' fw={'bold'} c={'red'}>{ formatProb(gacha.anySuccessProb()) }</Text>
+          <Text fz='xl'>
+            1回以上当たる確率は
+            <Text component='span' fw={'bold'} c={'red'}>
+              {formatProb(gacha.anySuccessProb())}
+            </Text>
           </Text>
         </List.Item>
         <List.Item mb={'sm'}>
-          <Text fz="xl">全て外れる確率は
-            <Text component='span' fw={'bold'}>{ formatProb(gacha.allFailProb()) }</Text>
+          <Text fz='xl'>
+            全て外れる確率は
+            <Text component='span' fw={'bold'}>
+              {formatProb(gacha.allFailProb())}
+            </Text>
           </Text>
         </List.Item>
-        {[50, 70, 95].map((threshold, index) =>
+        {[50, 70, 95].map((threshold, index) => (
           <List.Item key={index}>
-            {threshold}%の人は<Text component='span' fw={'bold'}>{gacha.anySuccessCount(threshold)}</Text>回やれば1回は当たる
+            {threshold}%の人は
+            <Text component='span' fw={'bold'}>
+              {gacha.anySuccessCount(threshold)}
+            </Text>
+            回やれば1回は当たる
           </List.Item>
-        )}
+        ))}
         <List.Item>
-          1%の人は<Text component='span' fw={'bold'} c={'red'}>{gacha.anySuccessCount(99) }</Text>回やっても全て外れる🤪
+          1%の人は
+          <Text component='span' fw={'bold'} c={'red'}>
+            {gacha.anySuccessCount(99)}
+          </Text>
+          回やっても全て外れる🤪
         </List.Item>
       </List>
 
-      <Space h={'md'}></Space>
+      <Space h={'md'} />
 
-      <ResultChart data={
-        [0, 1, 2, 3, 4, 5].map((hit) => ({ count: hit, prob: roundDecimal(gacha.SuccessProbByHit(hit) * 100, 2) }))
-      }></ResultChart>
+      <ResultChart
+        data={[0, 1, 2, 3, 4, 5].map((hit) => ({
+          count: hit,
+          prob: roundDecimal(gacha.SuccessProbByHit(hit) * 100, 2)
+        }))}
+      />
 
       <Table striped withBorder>
         <thead>
@@ -54,14 +69,12 @@ export const Result = (): JSX.Element => {
           </tr>
         </thead>
         <tbody>
-          {
-            [0, 1, 2, 3, 4, 5].map((hit, index) => (
-              <tr key={index}>
-                <td>{hit}</td>
-                <td>{ formatProb(gacha.SuccessProbByHit(hit)) }</td>
-              </tr>
-            ))
-          }
+          {[0, 1, 2, 3, 4, 5].map((hit, index) => (
+            <tr key={index}>
+              <td>{hit}</td>
+              <td>{formatProb(gacha.SuccessProbByHit(hit))}</td>
+            </tr>
+          ))}
         </tbody>
       </Table>
     </>

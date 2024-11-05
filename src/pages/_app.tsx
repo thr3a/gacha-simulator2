@@ -1,10 +1,10 @@
-import { type AppProps } from 'next/app';
-import Head from 'next/head';
-import { MantineProvider, Container } from '@mantine/core';
-import { Header } from '../features/common/components/Header';
+import { Container, MantineProvider } from '@mantine/core';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import type { AppProps } from 'next/app';
+import Head from 'next/head';
+import { Header } from '../features/common/components/Header';
 
-export default function App (props: AppProps): JSX.Element {
+export default function App(props: AppProps): JSX.Element {
   const { Component, pageProps } = props;
 
   const queryClient = new QueryClient({
@@ -21,9 +21,9 @@ export default function App (props: AppProps): JSX.Element {
     <>
       <Head>
         <title>ガチャシュミレーター</title>
-        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no" />
-        <meta name="description" content="スマホゲームなどのガチャ確率計算ツール" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no' />
+        <meta name='description' content='スマホゲームなどのガチャ確率計算ツール' />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
       <MantineProvider
         withGlobalStyles
@@ -79,7 +79,7 @@ export default function App (props: AppProps): JSX.Element {
               paddingBottom: theme.spacing.xl
             })}
           >
-            <Header></Header>
+            <Header />
             <Component {...pageProps} />
           </Container>
         </QueryClientProvider>

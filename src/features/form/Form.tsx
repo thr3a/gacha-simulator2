@@ -1,8 +1,8 @@
-import { Box, Space } from '@mantine/core';
+import { AttemptsInput } from '@/features/form/AttemptsInput';
 import { GachaFormProvider, useGachaForm, zodSchema } from '@/features/form/GachaContext';
 import { ProbInput } from '@/features/form/ProbInput';
-import { AttemptsInput } from '@/features/form/AttemptsInput';
 import { Result } from '@/features/form/Result';
+import { Box, Space } from '@mantine/core';
 import { zodResolver } from '@mantine/form'; // https://mantine.dev/form/validators/
 
 export const GachaForm = (): JSX.Element => {
@@ -17,12 +17,12 @@ export const GachaForm = (): JSX.Element => {
 
   return (
     <GachaFormProvider form={form}>
-      <Box maw={400} mx="auto">
-        <ProbInput></ProbInput>
-        <Space h="md" />
-        <AttemptsInput></AttemptsInput>
-        <Space h="md" />
-        <Result></Result>
+      <Box maw={400} mx='auto'>
+        <ProbInput />
+        <Space h='md' />
+        <AttemptsInput />
+        <Space h='md' />
+        <Result />
       </Box>
     </GachaFormProvider>
   );

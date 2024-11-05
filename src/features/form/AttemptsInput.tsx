@@ -1,5 +1,5 @@
-import { Box, Select } from '@mantine/core';
 import { useGachaFormContext } from '@/features/form/GachaContext';
+import { Box, Select } from '@mantine/core';
 
 const attemptList = (): string[] => {
   const list = [];
@@ -21,7 +21,7 @@ export const AttemptsInput = (): JSX.Element => {
   return (
     <Box>
       <Select
-        label="ガチャを試す回数"
+        label='ガチャを試す回数'
         data={attemptList()}
         value={form.values.attempts.toString()}
         onChange={handleChange}
